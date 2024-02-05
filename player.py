@@ -10,15 +10,15 @@ import random
 
 
 def make_stockfish_move(board):
-    with player.engine.SimpleEngine.popen_uci("./stockfish_8_x64") as engine:
-        result = engine.play(board, player.engine.Limit(time=2.0))
+    with chess.engine.SimpleEngine.popen_uci("./stockfish_8_x64") as engine:
+        result = engine.play(board, chess.engine.Limit(time=2.0))
         return result.move
 
 
 def add_randomness(move):
     # Introduce a random factor to the move
     random_offset = random.randint(-2, 2)
-    return player.Move(
+    return chess.Move(
         from_square=move.from_square, to_square=move.to_square + random_offset
     )
 
@@ -40,7 +40,7 @@ driver.find_element(By.ID, "login").click()
 time.sleep(5)
 
 # Initialize a chess board
-board = player.Board()
+board = chess.Board()
 
 # Perform an example game loop with Stockfish and randomness
 for _ in range(10):  # Replace with the desired number of moves
