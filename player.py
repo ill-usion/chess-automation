@@ -39,6 +39,8 @@ driver.find_element(By.ID, "login").click()
 # Wait for the page to load
 time.sleep(5)
 
+driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div[4]/div[1]/div/a[1]").click()
+
 # Initialize a chess board
 board = chess.Board()
 
